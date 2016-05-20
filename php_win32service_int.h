@@ -1,8 +1,8 @@
 /*
   +----------------------------------------------------------------------+
-  | PHP Version 5                                                        |
+  | PHP Version 7                                                        |
   +----------------------------------------------------------------------+
-  | Copyright (c) 1997-2015 The PHP Group                                |
+  | Copyright (c) 1997-2016 The PHP Group                                |
   +----------------------------------------------------------------------+
   | This source file is subject to version 3.0 of the PHP license,       |
   | that is bundled with this package in the file LICENSE, and is        |
@@ -23,10 +23,10 @@
 #define PHP_WIN32SERVICE_INT_H
 
 #ifdef ZTS
-# include "TSRM.h"
-# define SVCG(v)    TSRMG(win32service_globals_id, zend_win32service_globals *, v)
+#include <TSRM/TSRM.h>
+    #define WIN32SERVICE_ZG(v) TSRMG(win32service_globals_id, zend_win32service_globals *, v)
 #else
-# define SVCG(v)    (win32service_globals.v)
+    #define WIN32SERVICE_ZG(v)    (win32service_globals.v)
 #endif
 
 ZEND_BEGIN_MODULE_GLOBALS(win32service)
@@ -47,4 +47,3 @@ ZEND_END_MODULE_GLOBALS(win32service)
 
 ZEND_DECLARE_MODULE_GLOBALS(win32service);
 #endif
-
