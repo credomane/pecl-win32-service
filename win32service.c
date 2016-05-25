@@ -730,9 +730,9 @@ static PHP_MINIT_FUNCTION(win32service)
     /* dwErrorControl */
     MKCONST(SERVICE_ERROR_IGNORE);                     /* 0x00000000 The startup program ignores the error and continues the startup operation. */
     MKCONST(SERVICE_ERROR_NORMAL);                     /* 0x00000001 The startup program logs the error in the event log but continues the startup operation. */
-    /* MKCONST(SERVICE_ERROR_SEVERE);                  /* 0x00000002 The startup program logs the error in the event log.
+    MKCONST(SERVICE_ERROR_SEVERE);                     /* 0x00000002 The startup program logs the error in the event log.
                                                                      If the last-known-good configuration is being started, the startup operation continues. Otherwise, the system is restarted with the last-known-good configuration. */
-    /* MKCONST(SERVICE_ERROR_CRITICAL);                /* 0x00000003 The startup program logs the error in the event log, if possible.
+    MKCONST(SERVICE_ERROR_CRITICAL);                   /* 0x00000003 The startup program logs the error in the event log, if possible.
                                                                      If the last-known-good configuration is being started, the startup operation fails. Otherwise, the system is restarted with the last-known good configuration. */
 
     /* dwServiceFlags */
@@ -740,6 +740,7 @@ static PHP_MINIT_FUNCTION(win32service)
 
     /* Error constants generated in communication with the SCM */
     MKCONST(ERROR_ACCESS_DENIED);                      /* 0x00000005 The handle to the SCM database does not have the appropriate access rights. */
+    MKCONST(ERROR_CALL_NOT_IMPLEMENTED);               /* 0x00000078 This function is not supported. */
     MKCONST(ERROR_CIRCULAR_DEPENDENCY);                /* 0x00000423 A circular service dependency was specified. */
     MKCONST(ERROR_DATABASE_DOES_NOT_EXIST);            /* 0x00000429 The specified database does not exist. */
     MKCONST(ERROR_DEPENDENT_SERVICES_RUNNING);         /* 0x0000041B The service cannot be stopped because other running services are dependent on it. */
@@ -768,6 +769,7 @@ static PHP_MINIT_FUNCTION(win32service)
     MKCONST(ERROR_SERVICE_NOT_ACTIVE);                 /* 0x00000426 The service has not been started. */
     MKCONST(ERROR_SERVICE_REQUEST_TIMEOUT);            /* 0x0000041D The process for the service was started, but it did not call StartServiceCtrlDispatcher, or the thread that called StartServiceCtrlDispatcher may be blocked in a control handler function. */
     MKCONST(ERROR_SHUTDOWN_IN_PROGRESS);               /* 0x0000045B The system is shutting down; this function cannot be called. */
+    MKCONST(ERROR_SUCCESS);                            /* 0x00000000 No error. */
     MKCONST(NO_ERROR);                                 /* 0x00000000 No error. */
 
     /* Win32 Priority Constants */
